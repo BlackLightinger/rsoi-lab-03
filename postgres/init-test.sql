@@ -19,4 +19,4 @@ insert into privilege(username, balance) values
 
 \c tickets
 insert into ticket (ticket_uid, username, flight_number, price, status) values
-    ('550e8400-e29b-41d4-a716-446655440000', 'Test Max', 'SU-AFL031', 1500, 'PAID');
+    ('550e8400-e29b-41d4-a716-446655440000', 'Test Max', 'AFL031', 1500, 'PAID');
