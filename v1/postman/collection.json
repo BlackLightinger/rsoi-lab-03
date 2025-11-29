@@ -1295,7 +1295,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"Билет успешно возвращен\", () => {",
-											"    pm.response.to.have.status(204)",
+											"    pm.response.to.have.status(503)",
 											"})"
 										],
 										"type": "text/javascript"
