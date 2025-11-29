@@ -19,17 +19,17 @@
         },
         {
             "type": "any",
-            "value": "160fbdbd-15ee-4bdc-a58d-37eddd7748d0",
+            "value": "550e8400-e29b-41d4-a716-446655440000",
             "key": "ticketUid"
         },
         {
             "type": "any",
-            "value": "test user",
+            "value": "Test Max",
             "key": "username"
         },
         {
             "type": "any",
-            "value": 600,
+            "value": 0,
             "key": "balance"
         }
     ],

@@ -15,4 +15,8 @@ insert into flight(flight_number,datetime,from_airport_id,to_airport_id,price) v
 \c privileges
 
 insert into privilege(username, balance) values
-    ('test user', 0);
+    ('Test Max', 0);
+
+\c tickets
+insert into ticket (ticket_uid, username, flight_number, price, status) values
+    ('550e8400-e29b-41d4-a716-446655440000', 'Test Max', 'SU-AFL031', 1500, 'PAID');
