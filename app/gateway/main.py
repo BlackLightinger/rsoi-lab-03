@@ -63,7 +63,7 @@ def create_error_response(message: str, status_code: int):
 
 @app.exception_handler(CircuitOpenException)
 async def circuit_open_exception_handler(request, exc):
-    return error_response(f"{exc.service} unavailable", 503)
+    return create_error_response(f"{exc.service} unavailable", 503)
 
 
 def convert_ticket_to_response(ticket_data):
