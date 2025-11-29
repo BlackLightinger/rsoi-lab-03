@@ -15,4 +15,4 @@ insert into flight(flight_number,datetime,from_airport_id,to_airport_id,price) v
 \c privileges
 
 insert into privilege(username, balance) values
-    ('Test Max', 0);
+    ('test user', 0);
