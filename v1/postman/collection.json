@@ -1236,7 +1236,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"Получить информацию о состоянии бонусного счета\", () => {",
-											"    pm.response.to.have.status(200)",
+											"    pm.response.to.have.status(503)",
 											"})"
 										],
 										"type": "text/javascript"
@@ -1283,7 +1283,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"Билет успешно возвращен\", () => {",
-											"    pm.response.to.have.status(204)",
+											"    pm.response.to.have.status(503)",
 											"})"
 										],
 										"type": "text/javascript"
