@@ -1382,7 +1382,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"Информация по конкретному билету\", () => {",
-											"    pm.response.to.have.status(404)",
+											"    pm.response.to.have.status(200)",
 											"})"
 										],
 										"type": "text/javascript"
