@@ -904,6 +904,10 @@
 										"exec": [
 											"pm.test(\"Информация о пользователе\", () => {",
 											"    pm.response.to.have.status(200)",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
+											"    const response = pm.response.json();",
+											"    pm.expect(response.tickets).to.be.an(\"array\")",
+											"    pm.expect(response.privilege).to.be.not.empty",
 											"})"
 										],
 										"type": "text/javascript"
@@ -1171,7 +1175,7 @@
 										"exec": [
 											"pm.test(\"Информация по конкретному билету\", () => {",
 											"    pm.response.to.have.status(200)",
-											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
+                                            "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
 											"",
 											"    const flightNumber = pm.environment.get(\"flightNumber\")",
 											"    const ticketUid = pm.environment.get(\"ticketUid\")",

@@ -14,6 +14,7 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
+from circuit_breaker import *
 from common import *
 from services import *
 
@@ -120,6 +121,9 @@ def get_current_user_profile(x_user_name: str = Header()) -> UserInfoResponse | 
 
     except CircuitOpenException:
         formatted_tickets = []
+
+    if user_privilege is None:
+        return UserInfoResponse(tickets=formatted_tickets, privilege="")
 
     return UserInfoResponse(
         tickets=formatted_tickets,
