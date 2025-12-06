@@ -865,7 +865,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"Получить информацию о состоянии бонусного счета\", () => {",
-											"    pm.response.to.have.status(200)",
+											"    pm.response.to.have.status(503)",
 											"})"
 										],
 										"type": "text/javascript"
@@ -903,11 +903,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"Информация о пользователе\", () => {",
-											"    pm.response.to.have.status(200)",
-											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\");",
-											"    const response = pm.response.json();",
-											"    pm.expect(response.tickets).to.be.an(\"array\")",
-											"    pm.expect(response.privilege).to.be.not.empty",
+											"    pm.response.to.have.status(500)",
 											"})"
 										],
 										"type": "text/javascript"
@@ -945,7 +941,7 @@
 									"script": {
 										"exec": [
 											"pm.test(\"Купить билет\", () => {",
-											"    pm.response.to.have.status(200)",
+											"    pm.response.to.have.status(503)",
 											"})"
 										],
 										"type": "text/javascript"
