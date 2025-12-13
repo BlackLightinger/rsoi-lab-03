@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Header
+from fastapi import FastAPI, HTTPException, Header, BackgroundTasks
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import os
@@ -253,7 +253,7 @@ def cancel_with_retry(
 
 
 @app.delete("/tickets/{ticket_uid}", status_code=204)
-def cancel_ticket(ticket_uid: uuid.UUID, x_user_name: str = Header()):
+def cancel_ticket(ticket_uid: uuid.UUID, background_tasks: BackgroundTasks, x_user_name: str = Header()):
     ticket_info = ticket_client.get_ticket_by_uid(ticket_uid)
     if not ticket_info:
         return create_error_response("Ticket does not exist", 404)
@@ -271,6 +271,8 @@ def cancel_ticket(ticket_uid: uuid.UUID, x_user_name: str = Header()):
         privilege_client.revert_transaction(x_user_name, ticket_uid)
 
     ticket_client.remove_ticket(ticket_uid)
+
+    background_tasks.add_task(lambda: cancel_with_retry(x_user_name, ticket_uid))
 
 
 @app.get("/privilege")
